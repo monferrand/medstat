@@ -12,6 +12,5 @@ deploy:
   password:
     secure: 33V/of6XQM6+4/OZd6apS5F+c+UTdcPNTT2MufwkxQv5trOew2jRev5EIqR4dA5KcgabrjPwOzcKzBg27OxHWa2qaIDldnbZtLDzLyjPSH2fXKjL8WGB8uCLoO48TRyo65zvnl9yTQX54NDGzCe+timlU7gex4XNqAOsmTdbTySWZRD7QQ3zUSvJ9lMQDhCTlaTtIj0b+XbNBw/zinMNYcq7A/9H/LVIr7ldgTqXyqjnuI5bbZLLnPTM/1IaOZh7UqLZaCnMmQxmGtM6LwAbKYj6SZJLI2WwpRzRIFa3DIuZH/ZvylkcOck1qWb32dMoqHahxRXQ+Pd/QzywBHXrCCwWGwvWPh5mkQCYhw4dsaW0fupKxplV04UO3WrthcGOCBZJfT1kOIpC+KmDcxjCkiSkP9nbvIgvANlmBVeaGiXeQTPEIDNYvb1u7YX+zTho3g4YZllxccOphXp3EXIvhh5vB+svhnXsy8WX8OugJ+vH3FW+F+Jp10ICyr2yLbqjnH3v4wgWjyUD+ZncGgCvTVYFtrQ2vUfMiWrbssf9sJWQRu5XzTUHU5UprANhytkVsJ+hc+1SVRs2tPwI+vzJr+AeOLMauFabcvz31C0ELOFGnXjyxZ5vLrUjrFr5Db4AvRCOiaGSUSZPT6A8CNQsTg7U12eibr3UYBqs+9NyJ2E=
   on:
-    tags: true
     repo: monferrand/medstat
     python: 3.8
