@@ -54,11 +54,7 @@ def check(data: pd.DataFrame, expression_1: str, expression_2: str,
         try:
             c, result['p-value'] = fisher_exact(value_table)
         except ValueError as e:
-<<<<<<< HEAD
             result["error"] = f"Fisher test cannot be used: {e}"
-=======
-            result["error"] = f"Fisher test: {e}"
->>>>>>> fe0f5cefbaa8cdb81713c81a03e4615b8c3e6df5
             return result
 
     result['is-significant'] = False
