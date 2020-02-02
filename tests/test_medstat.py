@@ -3,12 +3,10 @@
 """Tests for `medstat` package."""
 import itertools
 import pytest
-from unittest.mock import patch
 
 import pandas as pd
 
 from medstat import medstat
-
 
 
 @pytest.fixture
@@ -43,7 +41,6 @@ def test_missing_boolean_category(make_dataset):
     assert False in result["contengency_table"].columns.values
 
 
-
 def test_contigency_table_values(make_dataset):
     data = make_dataset(300)
     result = medstat.test_hypothesis(data, 'q1 == 200', 'q2 >= 150')
@@ -69,7 +66,7 @@ def test_fisher_below_10(make_dataset):
     data = make_dataset(300)
     result = medstat.test_hypothesis(data, 'q1 < 27', "q3 == 'a'")
     assert result['test'] == "Fisher"
-    
+
 
 def test_significant(make_dataset):
     data = make_dataset(300)
@@ -92,5 +89,5 @@ def test_analyse_dataset_results(make_dataset):
         ('q1 < 5', "q3 == 'a'")
     ]
     results = medstat.analyse_dataset(data, hypothesis)
-    assert results[0]['significant'] == True
-    assert results[1]['significant'] == False
+    assert results[0]['significant']
+    assert not results[1]['significant']

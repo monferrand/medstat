@@ -16,25 +16,25 @@ def test_hypothesis(data: pd.DataFrame, expression_1: str, expression_2: str,
     be performed.
 
     Args:
-        data (pd.DataFrame): The data frame containing the data under 
+        data (pd.DataFrame): The data frame containing the data under
         study
 
         expression_1 (str): A column name or a boolean test
 
         expression_2 (str): A column name or a boolean test
 
-        threshold (float): p-value threshold under which the test is 
+        threshold (float): p-value threshold under which the test is
         considered significant
-    
+
     Returns:
-        Dict: Containing the p-value, the contengency table, the test 
+        Dict: Containing the p-value, the contengency table, the test
         used and if the result is significant
 
     Examples:
         >>> medstat.test_hypothesis(data, 'sex', 'age < 30')
-        {'contingency_table': 
+        {'contingency_table':
             age < 30  False  True  All
-            sex                       
+            sex
             Female       26    22   48
             Male         24     8   32
             All          50    30   80,
@@ -70,13 +70,13 @@ def test_hypothesis(data: pd.DataFrame, expression_1: str, expression_2: str,
 
 
 def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
-                    threshold:float = 0.05, file=None):
+                    threshold: float = 0.05, file=None):
     """
     Provide a data set and a list of couple of factor for which you want
-    to check the independence and it will perform the appropriate test 
+    to check the independence and it will perform the appropriate test
     for each hypothesis. The results will also be printed on the screen
     and can be saved to a file.
- 
+
     Args:
         data: The data set.
 
@@ -86,9 +86,9 @@ def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
         result is considered significant
 
         file (optional): A file where to write a report of the results
-    
+
     Returns:
-        List: A list of dictionnary containing for each test the result, the 
+        List: A list of dictionnary containing for each test the result, the
         contingency table etc (see test_hypothesis output)
 
     Examples:
@@ -97,16 +97,16 @@ def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
                                     file='report.txt')
         [{'contengency_table':
             age < 30  False  True  All
-            sex                       
+            sex
             Female       21    18   39
             Male         29    12   41
             All          50    30   80,
             'test': 'Chi-squared',
             'p-value': 0.18407215636751517,
             'significant': False},
-            {'contengency_table': 
+            {'contengency_table':
             test_a  negative  positive  All
-            sex                            
+            sex
             Female        25        14   39
             Male          25        16   41
             All           50        30   80,
@@ -123,7 +123,7 @@ def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
         print(report)
         results.append(result)
         reports.append(report)
-    
+
     if file is not None:
         with open(file, "w") as f:
             for report in reports:
@@ -144,24 +144,23 @@ def __make_result_report(result, i):
     return report
 
 
-
 def __make_contingency_table(data, expression_1, expression_2):
     """Prepare the contingency table"""
     factors = []
 
     for expression in [expression_1, expression_2]:
         if expression in data.columns.values:
-            factor =  data[expression].astype('category')
+            factor = data[expression].astype('category')
         else:
             factor = data.eval(expression)
-            factor =  pd.Categorical(factor, categories=[False, True])            
+            factor = pd.Categorical(factor, categories=[False, True])
 
         factors.append(factor)
 
     contengency_table = pd.crosstab(factors[0],
                                     factors[1],
-                                   dropna=False,
-                                   margins=True)
+                                    dropna=False,
+                                    margins=True)
     contengency_table.index.name = expression_1
     contengency_table.columns.name = expression_2
     return contengency_table
