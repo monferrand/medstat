@@ -17,15 +17,15 @@ def test_hypothesis(data: pd.DataFrame, expression_1: str, expression_2: str,
 
     Args:
         data (pd.DataFrame): The data frame containing the data under 
-                             study
+            study
         expression_1 (str): A column name or a boolean test
         expression_2 (str): A column name or a boolean test
-        threshold (float): p-value threshold under which the test is considered 
-                           significant
+        threshold (float): p-value threshold under which the test is 
+            considered significant
     
     Returns:
-        Dict: Containing the p-value, the contengency table, the test used 
-              And if the result is significant
+        Dict: Containing the p-value, the contengency table, the test 
+            used and if the result is significant
     """
     result = {}
     contengency_table = __make_contingency_table(data,
@@ -65,8 +65,12 @@ def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
         data: The data set.
         hypothesis: List of 2-tuples containing the factor to tests
         threshold (optional): p-value threshold under which the test
-                              result is considered significant
+            result is considered significant
         file (optional): A file where to write a report of the results
+    
+    Returns:
+        List: A list of dictionnary containing for each test the result, the 
+            contingency table etc (see test_hypothesis output)
     """
     results = []
     reports = []
