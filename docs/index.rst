@@ -9,7 +9,7 @@ Welcome to medstat's documentation!
    installation
    modules
    contributing
-   history
+
 
 Indices and tables
 ==================
