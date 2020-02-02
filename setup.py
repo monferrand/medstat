@@ -21,7 +21,8 @@ setup(
     python_requires='>=3.6',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
+        'Intended Audience ::  Healthcare Industry',
+        'Intended Audience ::  Science/Research',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
@@ -41,6 +42,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/monferrand/medstat',
-    version='1.0.3',
+    version='1.0.1',
     zip_safe=False,
 )
