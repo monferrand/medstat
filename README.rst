@@ -9,6 +9,10 @@ medstat
 .. image:: https://img.shields.io/travis/monferrand/medstat.svg
         :target: https://travis-ci.org/monferrand/medstat
 
+.. image:: https://img.shields.io/pypi/l/sphinx_rtd_theme.svg
+   :target: https://pypi.python.org/pypi/medstat/
+   :alt: License
+
 .. image:: https://readthedocs.org/projects/medstat/badge/?version=latest
         :target: https://medstat.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status

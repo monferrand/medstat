@@ -6,4 +6,4 @@ __version__ = '1.0.0'
 from medstat.medstat import test_hypothesis, analyse_dataset
 
 
-__all__ = [test_hypothesis, analyse_dataset]
+__all__ = ['test_hypothesis', 'analyse_dataset']
