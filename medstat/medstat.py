@@ -17,15 +17,31 @@ def test_hypothesis(data: pd.DataFrame, expression_1: str, expression_2: str,
 
     Args:
         data (pd.DataFrame): The data frame containing the data under 
-            study
+        study
+
         expression_1 (str): A column name or a boolean test
+
         expression_2 (str): A column name or a boolean test
+
         threshold (float): p-value threshold under which the test is 
-            considered significant
+        considered significant
     
     Returns:
         Dict: Containing the p-value, the contengency table, the test 
-            used and if the result is significant
+        used and if the result is significant
+
+    Examples:
+        >>> medstat.test_hypothesis(data, 'sex', 'age < 30')
+        {'contingency_table': 
+            age < 30  False  True  All
+            sex                       
+            Female       26    22   48
+            Male         24     8   32
+            All          50    30   80,
+         'test': 'Fisher',
+         'p-value': 0.06541995357625573,
+         'significant': False}
+
     """
     result = {}
     contengency_table = __make_contingency_table(data,
@@ -63,14 +79,41 @@ def analyse_dataset(data: pd.DataFrame, hypothesis: List[tuple],
  
     Args:
         data: The data set.
+
         hypothesis: List of 2-tuples containing the factor to tests
+
         threshold (optional): p-value threshold under which the test
-            result is considered significant
+        result is considered significant
+
         file (optional): A file where to write a report of the results
     
     Returns:
         List: A list of dictionnary containing for each test the result, the 
-            contingency table etc (see test_hypothesis output)
+        contingency table etc (see test_hypothesis output)
+
+    Examples:
+        >>> medstat.analyse_dataset(data,[('sex', 'age < 30'),
+                                          ('sex', 'test_a')],
+                                    file='report.txt')
+        [{'contengency_table':
+            age < 30  False  True  All
+            sex                       
+            Female       21    18   39
+            Male         29    12   41
+            All          50    30   80,
+            'test': 'Chi-squared',
+            'p-value': 0.18407215636751517,
+            'significant': False},
+            {'contengency_table': 
+            test_a  negative  positive  All
+            sex                            
+            Female        25        14   39
+            Male          25        16   41
+            All           50        30   80,
+            'test': 'Chi-squared',
+            'p-value': 0.9539453144224308,
+            'significant': False}]
+
     """
     results = []
     reports = []

@@ -7,7 +7,6 @@ Welcome to medstat's documentation!
 
    readme
    installation
-   usage
    modules
    contributing
    history
