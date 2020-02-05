@@ -46,8 +46,9 @@ Test a single hypothesis:
 
 .. code:: python
 
-    >>> medstat.test_hypothesis(data, 'sex', 'age < 30')
-
+    medstat.test_hypothesis(data, 'sex', 'age < 30')
+        
+    # Output
     {'contingency_table': 
     age < 30  False  True  All
     sex           
